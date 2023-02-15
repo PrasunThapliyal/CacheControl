@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <button onclick="GetWeather()">Get Weather</button>
+    <button onclick="GetSomething1()">Get fibers</button>
+    <button onclick="GetSomething2()">Get NEs</button>
+
+    <script>
+        function GetWeather() {
+            console.log('GetWeather invoked');
+            fetch('/WeatherForecast')
+                .then((response) => response.json())
+                .then((data) => console.log(data));
+        }
+        function GetSomething1() {
+            console.log('GetSomething1 invoked');
+            fetch('/WeatherForecast/something?reportName=fibers')
+                .then((response) => response.json())
+                .then((data) => console.log(data));
+        }
+        function GetSomething2() {
+            console.log('GetSomething2 invoked');
+            fetch('/WeatherForecast/something?reportName=nes')
+                .then((response) => response.json())
+                .then((data) => console.log(data));
+        }
+    </script>
+</body>
+</html>
