@@ -33,9 +33,11 @@ namespace CacheControl.Controllers
 
 
         [HttpGet("something")]
+        //[ResponseCache(Duration = 60, Location = ResponseCacheLocation.Any, VaryByQueryKeys = new string[] { "reportName" })]
         [ResponseCache(Duration = 60, Location = ResponseCacheLocation.Any)]
         public IEnumerable<WeatherForecast> GetSomething([FromQuery] string reportName)
         {
+            // This works as desired .. Chrome sends request to server if a new reportName is sent, but not for the same
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
                 Date = DateTime.Now.AddDays(index),

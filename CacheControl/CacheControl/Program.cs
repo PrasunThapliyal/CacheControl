@@ -22,6 +22,8 @@ namespace CacheControl
 
             app.UseStaticFiles(); // For index.html. Need to create a folder wwwroot and put index.html there
 
+            //app.UseResponseCaching();
+
             app.MapControllers();
 
             app.Run();
